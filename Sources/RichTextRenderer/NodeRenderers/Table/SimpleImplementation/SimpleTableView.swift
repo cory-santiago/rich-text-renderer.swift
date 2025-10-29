@@ -3,7 +3,7 @@ import UIKit
 
 class SimpleTableView: UIView, ResourceLinkBlockViewRepresentable {
     var context: [CodingUserInfoKey : Any] = [:]
-    private let stackView: UIStackView
+    private let scrollView: UIScrollView
     private var rows: [SimpleTableViewRow]
     private var measuredWidth: CGFloat = 0
     private var measuredHeight: CGFloat = 0
@@ -35,21 +35,18 @@ class SimpleTableView: UIView, ResourceLinkBlockViewRepresentable {
 
     init(rows: [SimpleTableViewRow]) {
         self.rows = rows
-        self.stackView = UIStackView(arrangedSubviews: rows)
+        self.scrollView = UIScrollView()
         super.init(frame: .zero)
 
         setContentCompressionResistancePriority(.required, for: .vertical)
+        addSubview(scrollView)
 
-        stackView.axis = .vertical
-        stackView.spacing = 0
-        addSubview(stackView)
-
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
 
         layer.cornerRadius = 10
