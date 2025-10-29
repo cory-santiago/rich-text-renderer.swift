@@ -39,6 +39,9 @@ class SimpleTableView: UIView, ResourceLinkBlockViewRepresentable {
         super.init(frame: .zero)
 
         setContentCompressionResistancePriority(.required, for: .vertical)
+        for view in self.rows {
+            self.scrollView.addSubview(view)
+        }
         addSubview(scrollView)
 
         scrollView.translatesAutoresizingMaskIntoConstraints = false
