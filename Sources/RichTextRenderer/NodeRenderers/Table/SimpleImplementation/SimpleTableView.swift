@@ -75,7 +75,7 @@ class SimpleTableView: UIView, ResourceLinkBlockViewRepresentable {
 }
 
 // MARK: - UITableViewDataSource
-extension RenderedTableView: UITableViewDataSource {
+extension SimpleTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rows.count
     }
@@ -97,7 +97,7 @@ extension RenderedTableView: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension RenderedTableView: UITableViewDelegate {
+extension SimpleTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let row = rows[indexPath.row]
         return row.intrinsicContentSize.height
