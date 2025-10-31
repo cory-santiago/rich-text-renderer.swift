@@ -19,6 +19,7 @@ class SimpleTableViewRow: UIView, ResourceLinkBlockViewRepresentable {
 
         let cellWidth = width / 2.0
         var maxHeight: CGFloat = 0
+        var maxWidth: CGFloat = 0
 
         for cell in cells {
             cell.layout(with: cellWidth)
@@ -28,7 +29,7 @@ class SimpleTableViewRow: UIView, ResourceLinkBlockViewRepresentable {
             }
         }
 
-        measuredWidth = width
+        measuredWidth = maxWidth
         measuredHeight = maxHeight
         invalidateIntrinsicContentSize()
     }
@@ -54,9 +55,14 @@ class SimpleTableViewRow: UIView, ResourceLinkBlockViewRepresentable {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            stackView.widthAnchor.constraint(equalToConstant: measuredWidth)
         ])
+//        NSLayoutConstraint.activate([
+//            stackView.topAnchor.constraint(equalTo: topAnchor),
+//            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+//        ])
 
         for cell in cells {
             stackView.addArrangedSubview(cell)

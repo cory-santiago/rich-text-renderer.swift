@@ -53,9 +53,10 @@ class SimpleTableViewCell: UIView, ResourceLinkBlockViewRepresentable {
         NSLayoutConstraint.activate([
             richTextViewController.view.topAnchor.constraint(equalTo: topAnchor),
             richTextViewController.view.bottomAnchor.constraint(equalTo: bottomAnchor),
-            richTextViewController.view.leadingAnchor.constraint(equalTo: leadingAnchor),
-            richTextViewController.view.trailingAnchor.constraint(equalTo: trailingAnchor)
+            self.widthAnchor.constraint(equalToConstant: measuredWidth)
         ])
+        //richTextViewController.view.leadingAnchor.constraint(equalTo: leadingAnchor),
+        // richTextViewController.view.trailingAnchor.constraint(equalTo: trailingAnchor)
 
         if isHeader {
             richTextViewController.view.overrideUserInterfaceStyle = .light
