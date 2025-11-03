@@ -17,7 +17,7 @@ class SimpleTableViewRow: UIView, ResourceLinkBlockViewRepresentable {
             return
         }
 
-        let cellWidth = width / 2.0
+        let cellWidth = width / cells.count
         var maxHeight: CGFloat = 0
         var maxWidth: CGFloat = 0
 
@@ -29,7 +29,7 @@ class SimpleTableViewRow: UIView, ResourceLinkBlockViewRepresentable {
             }
         }
 
-        measuredWidth = maxWidth
+        measuredWidth = width
         measuredHeight = maxHeight
         invalidateIntrinsicContentSize()
     }

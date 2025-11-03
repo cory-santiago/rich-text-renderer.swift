@@ -51,7 +51,7 @@ class SimpleTableView: UIView, ResourceLinkBlockViewRepresentable {
         tableView.delegate = self
         tableView.register(RichTextTableViewRowCell.self, forCellReuseIdentifier: "RichTextTableViewRowCell")
         tableView.separatorStyle = .none
-        tableView.isScrollEnabled = false
+        tableView.isScrollEnabled = true
         tableView.backgroundColor = .clear
 
         addSubview(tableView)
