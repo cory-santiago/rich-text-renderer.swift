@@ -132,8 +132,9 @@ private class RichTextTableViewRowCell: UITableViewCell {
             row.topAnchor.constraint(equalTo: contentView.topAnchor),
             row.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             row.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            row.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            row.widthAnchor.constraint(equalToConstant: row.intrinsicContentSize.width)
         ])
+        // stackView.widthAnchor.constraint(equalToConstant: measuredWidth)
     }
 
     override func prepareForReuse() {
