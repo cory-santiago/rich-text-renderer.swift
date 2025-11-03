@@ -22,7 +22,8 @@ class SimpleTableView: UIView, ResourceLinkBlockViewRepresentable {
             totalHeight += row.intrinsicContentSize.height
         }
 
-        measuredWidth = width
+        let numOfColumns = rows.first?.cells.count ?? 2
+        measuredWidth = width / 2.0 * Float(numOfColumns)
         measuredHeight = totalHeight
         self.frame.size = CGSize(width: measuredWidth, height: measuredHeight)
 

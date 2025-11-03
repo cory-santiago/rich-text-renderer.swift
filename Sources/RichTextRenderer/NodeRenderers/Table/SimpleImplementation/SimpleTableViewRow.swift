@@ -4,7 +4,7 @@ import UIKit
 class SimpleTableViewRow: UIView, ResourceLinkBlockViewRepresentable {
     var context: [CodingUserInfoKey : Any] = [:]
 
-    private var cells: [SimpleTableViewCell]
+    private(set) var cells: [SimpleTableViewCell]
     private let stackView = UIStackView()
     private var measuredWidth: CGFloat = 0
     private var measuredHeight: CGFloat = 0
